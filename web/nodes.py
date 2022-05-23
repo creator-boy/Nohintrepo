@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-# (c) YashDK [yash-dk@github]
-
 from anytree import NodeMixin
 
 class TorNode(NodeMixin):
