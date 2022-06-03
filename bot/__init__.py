@@ -179,7 +179,7 @@ try:
     if len(MEGA_API_KEY) == 0:
         raise KeyError
 except:
-    log_warning('MEGA API KEY not provided!')
+    log_warning('MEGA API KEY not provided by the owners!')
     MEGA_API_KEY = None
 try:
     MEGA_EMAIL_ID = getConfig('MEGA_EMAIL_ID')
@@ -187,7 +187,7 @@ try:
     if len(MEGA_EMAIL_ID) == 0 or len(MEGA_PASSWORD) == 0:
         raise KeyError
 except:
-    log_warning('MEGA Credentials not provided!')
+    log_warning('MEGA Credentials not provided by the owners!')
     MEGA_EMAIL_ID = None
     MEGA_PASSWORD = None
 try:
