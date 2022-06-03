@@ -22,7 +22,6 @@ def authorize(update, context):
             AUTHORIZED_CHATS.add(user_id)
             msg = 'User Authorized'
     elif reply_message is None:
-        # Trying to authorize a chat
         chat_id = update.effective_chat.id
         if chat_id in AUTHORIZED_CHATS:
             msg = 'Chat Already Authorized!'
@@ -33,7 +32,6 @@ def authorize(update, context):
             AUTHORIZED_CHATS.add(chat_id)
             msg = 'Chat Authorized'
     else:
-        # Trying to authorize someone by replying
         user_id = reply_message.from_user.id
         if user_id in AUTHORIZED_CHATS:
             msg = 'User Already Authorized!'
@@ -61,7 +59,6 @@ def unauthorize(update, context):
         else:
             msg = 'User Already Unauthorized!'
     elif reply_message is None:
-        # Trying to unauthorize a chat
         chat_id = update.effective_chat.id
         if chat_id in AUTHORIZED_CHATS:
             if DB_URI is not None:
@@ -72,7 +69,6 @@ def unauthorize(update, context):
         else:
             msg = 'Chat Already Unauthorized!'
     else:
-        # Trying to authorize someone by replying
         user_id = reply_message.from_user.id
         if user_id in AUTHORIZED_CHATS:
             if DB_URI is not None:
@@ -102,7 +98,6 @@ def addSudo(update, context):
     elif reply_message is None:
         msg = "Give ID or Reply To message of whom you want to Promote."
     else:
-        # Trying to authorize someone by replying
         user_id = reply_message.from_user.id
         if user_id in SUDO_USERS:
             msg = 'Already Sudo!'
