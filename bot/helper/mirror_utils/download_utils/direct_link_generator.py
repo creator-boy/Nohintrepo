@@ -1,13 +1,3 @@
-# Copyright (C) 2019 The Raphielscape Company LLC.
-#
-# Licensed under the Raphielscape Public License, Version 1.c (the "License");
-# you may not use this file except in compliance with the License.
-#
-""" Helper Module containing various sites direct links generators. This module is copied and modified as per need
-from https://github.com/AvinashReddy3108/PaperplaneExtended . I hereby take no credit of the following code other
-than the modifications. See https://github.com/AvinashReddy3108/PaperplaneExtended/commits/master/userbot/modules/direct_links.py
-for original authorship. """
-
 from requests import get as rget, head as rhead, post as rpost, Session as rsession
 from re import findall as re_findall, sub as re_sub, match as re_match, search as re_search
 from base64 import b64decode
@@ -77,13 +67,9 @@ def direct_link_generator(link: str):
         raise DirectDownloadLinkException(f'No Direct link function found for {link}')
 
 def zippy_share(url: str) -> str:
-    """ ZippyShare direct link generator
-    Based on https://github.com/zevtyardt/lk21 """
     return Bypass().bypass_zippyshare(url)
 
 def yandex_disk(url: str) -> str:
-    """ Yandex.Disk direct link generator
-    Based on https://github.com/wldhx/yadisk-direct """
     try:
         link = re_findall(r'\b(https?://(yadi.sk|disk.yandex.com)\S+)', url)[0][0]
     except IndexError:
@@ -95,8 +81,6 @@ def yandex_disk(url: str) -> str:
         raise DirectDownloadLinkException("ERROR: File not found/Download limit reached\n")
 
 def uptobox(url: str) -> str:
-    """ Uptobox direct link generator
-    based on https://github.com/jovanzers/WinTenCermin """
     try:
         link = re_findall(r'\bhttps?://.*uptobox\.com\S+', url)[0]
     except IndexError:
@@ -117,7 +101,6 @@ def uptobox(url: str) -> str:
     return dl_url
 
 def mediafire(url: str) -> str:
-    """ MediaFire direct link generator """
     try:
         link = re_findall(r'\bhttps?://.*mediafire\.com\S+', url)[0]
     except IndexError:
@@ -163,15 +146,9 @@ def hxfile(url: str) -> str:
     return Bypass().bypass_filesIm(url)
 
 def anonfiles(url: str) -> str:
-    """ Anonfiles direct link generator
-    Based on https://github.com/zevtyardt/lk21
-    """
     return Bypass().bypass_anonfiles(url)
 
 def letsupload(url: str) -> str:
-    """ Letsupload direct link generator
-    Based on https://github.com/zevtyardt/lk21
-    """
     try:
         link = re_findall(r'\bhttps?://.*letsupload\.io\S+', url)[0]
     except IndexError:
@@ -179,18 +156,12 @@ def letsupload(url: str) -> str:
     return Bypass().bypass_url(link)
 
 def fembed(link: str) -> str:
-    """ Fembed direct link generator
-    Based on https://github.com/zevtyardt/lk21
-    """
     dl_url= Bypass().bypass_fembed(link)
     count = len(dl_url)
     lst_link = [dl_url[i] for i in dl_url]
     return lst_link[count-1]
 
 def sbembed(link: str) -> str:
-    """ Sbembed direct link generator
-    Based on https://github.com/zevtyardt/lk21
-    """
     dl_url= Bypass().bypass_sbembed(link)
     count = len(dl_url)
     lst_link = [dl_url[i] for i in dl_url]
@@ -364,9 +335,6 @@ def krakenfiles(page_link: str) -> str:
             f"Failed to acquire download URL from kraken for : {page_link}")
 
 def gdtot(url: str) -> str:
-    """ Gdtot google drive link generator
-    By https://github.com/xcscxr """
-
     if CRYPT is None:
         raise DirectDownloadLinkException("ERROR: CRYPT cookie not provided")
 
