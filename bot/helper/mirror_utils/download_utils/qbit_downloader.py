@@ -6,7 +6,6 @@ from time import sleep, time
 from re import search as re_search
 from telegram import InlineKeyboardMarkup
 from telegram.ext import CallbackQueryHandler
-
 from bot import download_dict, download_dict_lock, BASE_URL, dispatcher, get_client, TORRENT_DIRECT_LIMIT, ZIP_UNZIP_LIMIT, STOP_DUPLICATE, WEB_PINCODE, QB_SEED, TORRENT_TIMEOUT, LOGGER, STORAGE_THRESHOLD
 from bot.helper.mirror_utils.status_utils.qbit_download_status import QbDownloadStatus
 from bot.helper.mirror_utils.upload_utils.gdriveTools import GoogleDriveHelper
@@ -34,7 +33,7 @@ class QbDownloader:
         self.__dupChecked = False
         self.__rechecked = False
 
-    def add_qb_torrent(self, link, path, select):
+  def add_qb_torrent(self, link, path, select):
         self.__path = path
         self.select = select
         self.client = get_client()
@@ -114,9 +113,9 @@ class QbDownloader:
             sendMessage(str(e), self.__listener.bot, self.__listener.message)
             self.client.auth_log_out()
 
-    def __qb_listener(self):
-        try:
-            tor_info = self.client.torrents_info(torrent_hashes=self.ext_hash)
+  def __qb_listener(self):
+      try:
+           tor_info = self.client.torrents_info(torrent_hashes=self.ext_hash)
             if len(tor_info) == 0:
                 return
             tor_info = tor_info[0]
