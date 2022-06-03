@@ -1,5 +1,3 @@
-# Implement By - @VarnaX-279
-
 from string import ascii_letters
 from random import SystemRandom
 
@@ -78,4 +76,4 @@ class TelegraphHelper:
         return
 
 
-telegraph=TelegraphHelper('Mirror-Leech-Telegram-Bot', 'https://github.com/anasty17/mirror-leech-telegram-bot')
+telegraph=TelegraphHelper('Mirror-Leech-Telegram-Bot', 'https://github.com/arunsingh-creator')
