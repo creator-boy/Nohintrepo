@@ -3,7 +3,6 @@ from string import ascii_letters, digits
 from telegram.ext import CommandHandler
 from threading import Thread
 from time import sleep
-
 from bot.helper.mirror_utils.upload_utils.gdriveTools import GoogleDriveHelper
 from bot.helper.telegram_helper.message_utils import sendMessage, sendMarkup, deleteMessage, delete_all_messages, update_all_messages, sendStatusMessage
 from bot.helper.telegram_helper.filters import CustomFilters
@@ -101,7 +100,7 @@ def _clone(message, bot, multi=0):
         if is_gdtot:
             gd.deletefile(link)
     else:
-        sendMessage('Send Gdrive or gdtot link along with command or by replying to the link by command', bot, message)
+        sendMessage('Send Gdrive or gdtot link along with command or by replying to the link', bot, message)
 
 @new_thread
 def cloneNode(update, context):
